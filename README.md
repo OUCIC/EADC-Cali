@@ -11,8 +11,17 @@ We propose an integrated calibration neural network. The network is meticulously
   ```
   pip install -r requirements.txt
   ```
-  
-
+## Datasets
+We will provide the ADC datasets and analysis methods later.
+## Usage
+The network framework is contained in folder, with the following structure:
+```
+models.py
+utils.py
+train.py
+test.py
+```
+To run this network, you need to train the network model by running ```train.py``` then run ```test.py```to obtain the network output results for subsequent analysis.
 ## Acknowledgement
 We really appreciate the contributors of following codebases.
 
