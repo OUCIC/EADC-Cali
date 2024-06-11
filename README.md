@@ -8,6 +8,10 @@ We propose an integrated calibration neural network. The network is meticulously
 * Python 3.11.8
 * Pytorch 2.2.1
 * CUDA 12.1
+  ```
+  pip install -r requirements.txt
+  ```
+  
 
 ## Acknowledgement
 We really appreciate the contributors of following codebases.
