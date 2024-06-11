@@ -1,1 +1,19 @@
-
+from torch import nn
+from tcn import TemporalConvNet
+import torch.nn.functional as F
+import torch
+# from utils import data_generator
+class TCN_FCNN(nn.Module):
+    def __init__(self, input_size, output_size, num_channels, kernel_size, dropout):
+        super(TCN_FCNN, self).__init__()
+        self.tcn = TemporalConvNet(input_size, num_channels, kernel_size, dropout=dropout)
+        self.linear1 = nn.Linear(num_channels[-1], 64)
+        self.linear2 = nn.Linear(64, output_size)
+        self.relu = nn.ReLU()
+    def forward(self, x):
+        # x needs to have dimension (N, C, L) in order to be passed into CNN
+        output = self.tcn(x).transpose(1, 2)
+        output = self.linear1(output)
+        output = self.relu(output)
+        output = self.linear2(output)
+        return output.squeeze(-1)
